@@ -5,14 +5,15 @@ import cn.tedu.sp01.pojo.Order;
 
 public interface OrderService {
 	/**
-	 * 获取指定id订单数据
+	 * 鑾峰彇鎸囧畾id璁㈠崟鏁版嵁
 	 * @param orderId
 	 * @return
 	 */
 	Order getOrder(String orderId);
-	
+	//////////////////////////////////
+	//22222222
 	/**
-	 * 添加订单数据
+	 * 娣诲姞璁㈠崟鏁版嵁
 	 * @param order
 	 */
 	void addOrder(Order order);
