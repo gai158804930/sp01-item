@@ -6,23 +6,23 @@ eureka:
     service-url:
      defaultZone: http://eureka1:2001/eureka, http://eureka2:2002/eureka
 
-#zuul的默认配置就是服务id,所以也可以不配置 
+#zuul鐨勯粯璁ら厤缃氨鏄湇鍔d,鎵�浠ヤ篃鍙互涓嶉厤缃� 
 zuul:
   routes:
      item-service: /item-service/**
      user-service: /user-service/**
      order-service: /order-service/**
   retryable: true 
-  #zuul的重试功能要导入spring-retry的jar包并且在配置文件中开启
+  #zuul鐨勯噸璇曞姛鑳借瀵煎叆spring-retry鐨刯ar鍖呭苟涓斿湪閰嶇疆鏂囦欢涓紑鍚�
   
-#配置重试相关的参数
+#閰嶇疆閲嶈瘯鐩稿叧鐨勫弬鏁�
 ribbon:
  ConnectTimeout: 1000
  ReadTimeout: 1000
  MaxAutoRetriesNextServer: 1
  MaxAutoRetries: 1
 
-#设置hytrix超时时间(默认为1s)
+#璁剧疆hytrix瓒呮椂鏃堕棿(榛樿涓�1s)
 hystrix:
   command:
     default:
