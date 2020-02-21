@@ -1,0 +1,32 @@
+server:
+  port: 3001
+
+eureka:
+  client:
+    service-url:
+     defaultZone: http://eureka1:2001/eureka, http://eureka2:2002/eureka
+
+#zuul的默认配置就是服务id,所以也可以不配置 
+zuul:
+  routes:
+     item-service: /item-service/**
+     user-service: /user-service/**
+     order-service: /order-service/**
+  retryable: true 
+  #zuul的重试功能要导入spring-retry的jar包并且在配置文件中开启
+  
+#配置重试相关的参数
+ribbon:
+ ConnectTimeout: 1000
+ ReadTimeout: 1000
+ MaxAutoRetriesNextServer: 1
+ MaxAutoRetries: 1
+
+#设置hytrix超时时间(默认为1s)
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 500  
